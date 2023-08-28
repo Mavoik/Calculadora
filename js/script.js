@@ -1,37 +1,37 @@
+
+let displayOnInput = '';
+let display;
+
 selectButton = () => {
     const buttonCollection = document.querySelectorAll('button');
 
-    buttonCollection.forEach(buttons =>{
-        buttons.addEventListener('click', (event) =>{
+    buttonCollection.forEach(buttons => {
+        buttons.addEventListener('click', (event) => {
             let buttonSelected = event.target.value;
-            console.log(buttonSelected)
-            if (buttonSelected === 'clear') {
-                clearDisplay();
-            }else
-            checkOperations(buttonSelected);
-            showOnDisplay(buttonSelected);
+
+                showOnDisplay(buttonSelected);
         });
     });
 };
 
+
 showOnDisplay = (value) => {
-    const display = document.querySelector('.operaciones');
     display.value += value;
 };
 
 clearDisplay = () => {
-    const display = document.querySelector('.operaciones');
-    display.value = '';
+    
+    display.innerHTML = displayOnInput;
 }
 
 checkOperations = (value) => {
-    const display = document.querySelector('.operaciones');
-    if (display.value === "="){
-        
+    if (display.value === "=") {
+
     };
 };
 
 window.addEventListener('load', (event) => {
+    display = document.querySelector('.operaciones');
     selectButton();
 });
 
